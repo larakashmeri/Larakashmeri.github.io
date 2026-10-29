@@ -35,7 +35,7 @@
     .btn:hover{transform:translateY(-2px)}
     .links{display:flex;gap:24px;flex-wrap:wrap;margin-top:28px;color:var(--muted)}
     .preview{border:1px solid rgba(105,180,255,.25);background:linear-gradient(145deg,#10243c,#0a1525);border-radius:25px;padding:22px;box-shadow:0 25px 80px #0005;position:relative;overflow:hidden}
-    .preview:before{content:"";position:absolute;width:220px;height:220px;right:-100px;top:-120px;background:#268bff33;filter:blur(20px);border-radius:50%}
+    .preview:before{content:"";position:absolute;width:220px;height:220px;right:-100px;top:-120px;background:#268bff33;filter:blur(20px);border-radius:50%;pointer-events:none}
     .preview-top{display:flex;justify-content:space-between;align-items:center;color:#dbeaff;font-weight:700;margin-bottom:20px}
     .pills{display:flex;gap:6px}.pills i{width:8px;height:8px;border-radius:50%;background:#31516f}
     .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
@@ -43,13 +43,10 @@
     .metric small{color:var(--muted);display:block}.metric strong{font-size:1.5rem;display:block;margin:4px 0}.metric em{font-style:normal;color:var(--green);font-size:.82rem}
     .bars{height:130px;display:flex;align-items:end;gap:10px;padding:18px 10px 0;border-bottom:1px solid var(--line);margin-top:18px}
     .bar{flex:1;border-radius:7px 7px 0 0;background:linear-gradient(180deg,#68d7ff,#2877ed);opacity:.9}
+    .bar-labels{display:flex;gap:10px;padding:8px 10px 0;color:var(--muted);font-size:.72rem}
+    .bar-labels span{flex:1;text-align:center}
     .caption{color:var(--muted);font-size:.8rem;margin:13px 0 0}
-    .preview-img{display:block;width:100%;border-radius:14px;border:1px solid rgba(115,170,230,.13)}
-    .preview-img[hidden]{display:none}
-    .tabs{display:flex;gap:6px}
-    .tab{font:inherit;font-size:.82rem;font-weight:700;color:var(--muted);background:#0a1728;border:1px solid var(--line);border-radius:99px;padding:5px 14px;cursor:pointer}
-    .tab.active{color:var(--text);background:linear-gradient(135deg,#2587ee,#405ce8);border-color:transparent}
-    .tab:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}    section{padding:54px 0}
+    section{padding:54px 0}
     .eyebrow{color:var(--cyan);font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
     h2{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;margin:10px 0 12px;letter-spacing:-.03em}
     .section-intro{color:var(--muted);max-width:650px;margin:0 0 28px}
@@ -103,16 +100,21 @@
           </div>
         </div>
         <div class="preview">
-          <div class="preview-top">
-            <span class="tabs" role="tablist">
-              <button class="tab active" type="button" role="tab" aria-selected="true" data-target="shot1" data-caption="Sales Performance Dashboard · Power BI">Power BI</button>
-              <button class="tab" type="button" role="tab" aria-selected="false" data-target="shot2" data-caption="Excel KPI Dashboard · Excel">Excel</button>
-            </span>
-            <span class="pills"><i></i><i></i><i></i></span>
+          <div class="preview-top"><span>Procurement Performance</span><span class="pills"><i></i><i></i><i></i></span></div>
+          <div class="metrics">
+            <div class="metric"><small>Cost savings</small><strong>8.0%</strong><em>3.9M saved</em></div>
+            <div class="metric"><small>Compliance</small><strong>82%</strong><em>640 of 777 POs</em></div>
+            <div class="metric"><small>Avg. lead time</small><strong>10.8</strong><em>days</em></div>
           </div>
-          <img id="shot1" class="preview-img" src="Sales-Performance-Dashboard.png" alt="Screenshot of my Power BI sales performance dashboard">
-          <img id="shot2" class="preview-img" src="main-interface.png" alt="Screenshot of my Excel KPI dashboard" hidden>
-          <p class="caption" id="shotCaption">Sales Performance Dashboard · Power BI</p>
+          <div class="bars">
+            <div class="bar" style="height:77%" title="Alpha Inc: 689K saved"></div>
+            <div class="bar" style="height:100%" title="Beta Supplies: 890K saved"></div>
+            <div class="bar" style="height:88%" title="Delta Logistics: 782K saved"></div>
+            <div class="bar" style="height:95%" title="Epsilon Group: 845K saved"></div>
+            <div class="bar" style="height:81%" title="Gamma Co: 725K saved"></div>
+          </div>
+          <div class="bar-labels"><span>Alpha</span><span>Beta</span><span>Delta</span><span>Epsilon</span><span>Gamma</span></div>
+          <p class="caption">Cost savings by supplier · Excel project</p>
         </div>
       </section>
 
@@ -138,23 +140,23 @@
           <article class="card">
             <div class="project-art">
               <div class="art-label">Excel Dashboard</div>
-              <img src="main-interface.png" alt="Screenshot of the Excel sales and performance dashboard" loading="lazy" onerror="this.remove()">
+              <img src="main-interface.png" alt="Screenshot of the Excel procurement performance dashboard" loading="lazy" onerror="this.remove()">
             </div>
-            <div class="project-type">Excel · Dashboard</div>
-            <h3>Sales / Performance Analysis</h3>
-            <p>An interactive dashboard designed to monitor key performance indicators, compare results, and highlight trends for business users.</p>
-            <div class="tags"><span class="tag">Excel</span><span class="tag">KPIs</span><span class="tag">Insights</span></div>
+            <div class="project-type">Excel · Procurement Analytics</div>
+            <h3>Procurement Performance Dashboard</h3>
+            <p>An Excel dashboard that tracks procurement KPIs across 777 purchase orders and 5 suppliers, covering cost savings, supplier compliance, delivery lead time, and order status.</p>
+            <div class="tags"><span class="tag">Excel</span><span class="tag">Procurement KPIs</span><span class="tag">Supplier Analysis</span></div>
             <a class="project-link" href="https://github.com/Larakashmeri" target="_blank" rel="noopener">View project on GitHub ↗</a>
           </article>
           <article class="card">
             <div class="project-art">
               <div class="art-label">Power BI Dashboard</div>
-              <img src="Sales-Performance-Dashboard.png" alt="Screenshot of the Power BI business intelligence dashboard" loading="lazy" onerror="this.remove()">
+              <img src="Sales-Performance-Dashboard.png" alt="Screenshot of the Power BI sales performance dashboard" loading="lazy" onerror="this.remove()">
             </div>
-            <div class="project-type">Power BI · Business Intelligence</div>
-            <h3>Business Intelligence Dashboard</h3>
-            <p>A visual report that helps users explore performance metrics, identify patterns, and make data-informed decisions.</p>
-            <div class="tags"><span class="tag">Power BI</span><span class="tag">Data Modeling</span><span class="tag">Visualization</span></div>
+            <div class="project-type">Power BI · Sales Analytics</div>
+            <h3>Sales Performance Dashboard</h3>
+            <p>A Power BI report that tracks sales, profit, and units sold by country, product, segment, and discount band, with filters for date and category.</p>
+            <div class="tags"><span class="tag">Power BI</span><span class="tag">Data Visualization</span><span class="tag">Interactive Filters</span></div>
             <a class="project-link" href="https://github.com/Larakashmeri" target="_blank" rel="noopener">View project on GitHub ↗</a>
           </article>
         </div>
