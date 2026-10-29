@@ -45,7 +45,11 @@
     .bar{flex:1;border-radius:7px 7px 0 0;background:linear-gradient(180deg,#68d7ff,#2877ed);opacity:.9}
     .caption{color:var(--muted);font-size:.8rem;margin:13px 0 0}
     .preview-img{display:block;width:100%;border-radius:14px;border:1px solid rgba(115,170,230,.13)}
-    section{padding:54px 0}
+    .preview-img[hidden]{display:none}
+    .tabs{display:flex;gap:6px}
+    .tab{font:inherit;font-size:.82rem;font-weight:700;color:var(--muted);background:#0a1728;border:1px solid var(--line);border-radius:99px;padding:5px 14px;cursor:pointer}
+    .tab.active{color:var(--text);background:linear-gradient(135deg,#2587ee,#405ce8);border-color:transparent}
+    .tab:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}    section{padding:54px 0}
     .eyebrow{color:var(--cyan);font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
     h2{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;margin:10px 0 12px;letter-spacing:-.03em}
     .section-intro{color:var(--muted);max-width:650px;margin:0 0 28px}
@@ -98,11 +102,18 @@
             <span>Saudi Arabia</span>
           </div>
         </div>
-        <a class="preview" href="#projects" aria-label="View my projects">
-          <div class="preview-top"><span>Sales Performance Dashboard</span><span class="pills"><i></i><i></i><i></i></span></div>
-          <img class="preview-img" src="Sales-Performance-Dashboard.png" alt="Screenshot of my Power BI sales performance dashboard">
-          <p class="caption">Power BI · Featured project</p>
-        </a>
+        <div class="preview">
+          <div class="preview-top">
+            <span class="tabs" role="tablist">
+              <button class="tab active" type="button" role="tab" aria-selected="true" data-target="shot1" data-caption="Sales Performance Dashboard · Power BI">Power BI</button>
+              <button class="tab" type="button" role="tab" aria-selected="false" data-target="shot2" data-caption="Excel KPI Dashboard · Excel">Excel</button>
+            </span>
+            <span class="pills"><i></i><i></i><i></i></span>
+          </div>
+          <img id="shot1" class="preview-img" src="Sales-Performance-Dashboard.png" alt="Screenshot of my Power BI sales performance dashboard">
+          <img id="shot2" class="preview-img" src="main-interface.png" alt="Screenshot of my Excel KPI dashboard" hidden>
+          <p class="caption" id="shotCaption">Sales Performance Dashboard · Power BI</p>
+        </div>
       </section>
 
       <section id="about">
