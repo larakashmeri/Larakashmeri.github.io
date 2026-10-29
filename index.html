@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lara Kashmeri — Data Analyst and MIS Professional portfolio.">
+  <meta name="description" content="Lara Kashmeri — Data Analyst and MIS professional specializing in KPI reporting, dashboards, and business intelligence.">
+  <meta property="og:title" content="Lara Kashmeri | Data Analyst Portfolio">
+  <meta property="og:description" content="Data analysis, KPI reporting, and Power BI / Excel dashboards.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='26' fill='%233456df'/%3E%3Ctext x='50' y='68' font-size='56' font-family='Arial' font-weight='800' text-anchor='middle' fill='white'%3EL%3C/text%3E%3C/svg%3E">
   <title>Lara Kashmeri | Data Analyst Portfolio</title>
   <style>
-    :root{--bg:#07111f;--panel:#0d1b2d;--panel2:#10233b;--blue:#4da3ff;--cyan:#69dcff;--text:#f3f7ff;--muted:#a8b8cc;--line:rgba(105,180,255,.20);--green:#65e6bd}
+    :root{--bg:#07111f;--panel:#0d1b2d;--blue:#4da3ff;--cyan:#69dcff;--text:#f3f7ff;--muted:#a8b8cc;--line:rgba(105,180,255,.20);--green:#65e6bd}
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:radial-gradient(ellipse at 80% 8%,rgba(29,105,196,.22),transparent 34%),radial-gradient(ellipse at 8% 42%,rgba(27,83,157,.14),transparent 32%),var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.6}
+    html{scroll-behavior:smooth;scroll-padding-top:20px}
+    body{margin:0;background:radial-gradient(ellipse at 80% 8%,rgba(29,105,196,.22),transparent 34%),radial-gradient(ellipse at 8% 42%,rgba(27,83,157,.14),transparent 32%),var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.6}
     a{color:inherit;text-decoration:none}
+    a:focus-visible,.btn:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:8px}
     .wrap{width:min(1120px,92%);margin:auto}
     header{padding:24px 0;display:flex;align-items:center;justify-content:space-between;gap:20px}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.08em;font-size:.9rem}
@@ -23,8 +28,9 @@
     h1{font-size:clamp(2.8rem,6vw,5.3rem);line-height:1.03;letter-spacing:-.055em;margin:25px 0 20px}
     h1 span{color:var(--blue)}
     .lead{font-size:1.18rem;color:#c0cde0;max-width:610px}
+    .lead strong{color:#69baff}
     .buttons{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
-    .btn{padding:13px 20px;border-radius:13px;border:1px solid var(--line);font-weight:750;display:inline-flex;align-items:center;gap:10px;transition:.2s}
+    .btn{padding:13px 20px;border-radius:13px;border:1px solid var(--line);font-weight:750;display:inline-flex;align-items:center;gap:10px;transition:transform .2s}
     .btn.primary{background:linear-gradient(135deg,#2587ee,#405ce8);border:0;box-shadow:0 10px 32px #286fe633}
     .btn:hover{transform:translateY(-2px)}
     .links{display:flex;gap:24px;flex-wrap:wrap;margin-top:28px;color:var(--muted)}
@@ -37,6 +43,7 @@
     .metric small{color:var(--muted);display:block}.metric strong{font-size:1.5rem;display:block;margin:4px 0}.metric em{font-style:normal;color:var(--green);font-size:.82rem}
     .bars{height:130px;display:flex;align-items:end;gap:10px;padding:18px 10px 0;border-bottom:1px solid var(--line);margin-top:18px}
     .bar{flex:1;border-radius:7px 7px 0 0;background:linear-gradient(180deg,#68d7ff,#2877ed);opacity:.9}
+    .caption{color:var(--muted);font-size:.8rem;margin:13px 0 0}
     section{padding:54px 0}
     .eyebrow{color:var(--cyan);font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
     h2{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;margin:10px 0 12px;letter-spacing:-.03em}
@@ -45,9 +52,9 @@
     .skill{border:1px solid var(--line);background:#0d1d30;border-radius:12px;padding:10px 15px;color:#d7e7fa}
     .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
     .card{border:1px solid var(--line);background:linear-gradient(145deg,#102139,#0a1626);border-radius:20px;padding:22px;overflow:hidden}
-    .project-art{height:175px;border-radius:14px;margin-bottom:20px;background:linear-gradient(135deg,#102e50,#173f70);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-    .project-art img{width:100%;height:100%;object-fit:cover}
-    .placeholder{font-size:1.1rem;font-weight:800;color:#c4e5ff;text-align:center;padding:20px}
+    .project-art{height:190px;border-radius:14px;margin-bottom:20px;background:linear-gradient(135deg,#102e50,#173f70);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .project-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .art-label{font-size:1.05rem;font-weight:800;color:#c4e5ff;text-align:center;padding:20px}
     .project-type{font-size:.78rem;color:var(--cyan);font-weight:800;letter-spacing:.1em;text-transform:uppercase}
     .card h3{font-size:1.35rem;margin:8px 0}
     .card p{color:var(--muted);margin:0 0 17px}
@@ -55,40 +62,42 @@
     .tag{font-size:.78rem;border-radius:7px;padding:5px 9px;background:#17304b;color:#c8e2ff}
     .project-link{color:var(--cyan);font-weight:750}
     .insights{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-    .insight{padding:20px;border:1px solid var(--line);border-radius:17px;background:#0d1b2d}
+    .insight{padding:20px;border:1px solid var(--line);border-radius:17px;background:var(--panel)}
     .insight b{font-size:1.6rem;color:var(--blue);display:block}
     .insight span{color:var(--muted);font-size:.94rem}
     .contact{border:1px solid var(--line);background:linear-gradient(120deg,#102746,#0c1a2b);padding:32px;border-radius:22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .contact h3{margin:0 0 6px;font-size:1.5rem}
     footer{padding:28px 0 40px;color:#8295ad;font-size:.85rem;border-top:1px solid rgba(105,180,255,.12);margin-top:40px}
     @media(max-width:780px){header{align-items:flex-start}nav{gap:12px;flex-wrap:wrap;justify-content:flex-end;font-size:.82rem}.hero{grid-template-columns:1fr;padding-top:45px;gap:30px}.projects{grid-template-columns:1fr}.insights{grid-template-columns:1fr}.contact{align-items:flex-start;flex-direction:column}.preview{max-width:600px;width:100%}}
     @media(max-width:440px){.brand{font-size:.75rem}.mark{width:36px;height:36px}nav{max-width:170px}.metrics{gap:6px}.metric{padding:11px 8px}.metric strong{font-size:1.15rem}.metric small{font-size:.78rem}.lead{font-size:1.03rem}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.btn:hover{transform:none}}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <a class="brand" href="#home"><span class="mark">L</span><span>LARA KASHMERI</span></a>
-      <nav><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
+      <a class="brand" href="#home" aria-label="Lara Kashmeri, home"><span class="mark">L</span><span>LARA KASHMERI</span></a>
+      <nav aria-label="Main"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
     </header>
     <main>
       <section class="hero" id="home">
         <div>
           <div class="badge"><span class="dot"></span> Open to Data Analyst &amp; BI opportunities</div>
           <h1>Lara<br>Kashmeri<span>.</span></h1>
-          <p class="lead">Turning data into insights — <strong style="color:#69baff">Data Analytics</strong> &amp; Business Intelligence.</p>
+          <p class="lead">Turning data into insights — <strong>Data Analytics</strong> &amp; Business Intelligence.</p>
           <p style="color:var(--muted)">MIS professional with experience in data analysis, KPI reporting, dashboard development, and data quality.</p>
           <div class="buttons">
             <a class="btn primary" href="Lara_Kashmeri_CV.pdf" download>Download CV ↓</a>
             <a class="btn" href="#projects">View Projects →</a>
           </div>
           <div class="links">
-            <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://www.linkedin.com/in/lara-kashmeri-158951244" target="_blank" rel="noopener">LinkedIn ↗</a>
             <a href="mailto:larakashmeri@gmail.com">Email ↗</a>
             <a href="https://github.com/Larakashmeri" target="_blank" rel="noopener">GitHub ↗</a>
             <span>Saudi Arabia</span>
           </div>
         </div>
-        <div class="preview" aria-label="Decorative dashboard preview">
+        <div class="preview" role="img" aria-label="Illustration of an analytics dashboard with revenue, margin, and customer metrics">
           <div class="preview-top"><span>Analytics Snapshot</span><span class="pills"><i></i><i></i><i></i></span></div>
           <div class="metrics">
             <div class="metric"><small>Revenue</small><strong>2.3M</strong><em>+12.4%</em></div>
@@ -98,91 +107,82 @@
           <div class="bars">
             <div class="bar" style="height:35%"></div><div class="bar" style="height:52%"></div><div class="bar" style="height:42%"></div><div class="bar" style="height:72%"></div><div class="bar" style="height:61%"></div><div class="bar" style="height:86%"></div><div class="bar" style="height:96%"></div><div class="bar" style="height:76%"></div>
           </div>
-          <p style="color:var(--muted);font-size:.8rem;margin:13px 0 0">Sample visual · replace with your project screenshots below</p>
+          <p class="caption">Illustrative sample data</p>
         </div>
       </section>
+
       <section id="about">
-        <div class="eyebrow">About me</div><h2>Curious about data.<br>Focused on business impact.</h2>
+        <div class="eyebrow">About me</div>
+        <h2>Curious about data.<br>Focused on business impact.</h2>
         <p class="section-intro">I use data to uncover patterns, track performance, and communicate insights clearly. This portfolio showcases selected analytics and business intelligence projects.</p>
       </section>
+
       <section id="skills">
-        <div class="eyebrow">Toolkit</div><h2>Skills &amp; Tools</h2>
-        <p class="section-intro">Update this list to match the tools and skills you use confidently.</p>
-        <div class="skills"><span class="skill">Microsoft Excel</span><span class="skill">Power BI</span><span class="skill">Data Analysis</span><span class="skill">Dashboarding</span><span class="skill">KPI Reporting</span><span class="skill">Data Cleaning &amp; Validation</span><span class="skill">Business Intelligence</span><span class="skill">Power Query</span></div>
+        <div class="eyebrow">Toolkit</div>
+        <h2>Skills &amp; Tools</h2>
+        <div class="skills">
+          <span class="skill">Microsoft Excel</span><span class="skill">Power BI</span><span class="skill">Data Analysis</span><span class="skill">Dashboarding</span><span class="skill">KPI Reporting</span><span class="skill">Data Cleaning &amp; Validation</span><span class="skill">Business Intelligence</span><span class="skill">Power Query</span>
+        </div>
       </section>
+
       <section id="projects">
-        <div class="eyebrow">Selected work</div><h2>Projects that turn data into decisions.</h2>
-        <p class="section-intro">Add your dashboard screenshots and links to each project. The descriptions below are starter text that you can customize.</p>
+        <div class="eyebrow">Selected work</div>
+        <h2>Projects that turn data into decisions.</h2>
+        <p class="section-intro">Dashboards built to track performance and support business decisions.</p>
         <div class="projects">
           <article class="card">
-            <div class="project-art"><div class="placeholder">EXCEL DASHBOARD<br><small>Replace with your screenshot</small></div></div>
-            <div class="project-type">Excel · Dashboard</div><h3>Sales / Performance Analysis</h3>
+            <div class="project-art">
+              <div class="art-label">Excel Dashboard</div>
+              <img src="images/excel-dashboard.png" alt="Screenshot of the Excel sales and performance dashboard" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="project-type">Excel · Dashboard</div>
+            <h3>Sales / Performance Analysis</h3>
             <p>An interactive dashboard designed to monitor key performance indicators, compare results, and highlight trends for business users.</p>
             <div class="tags"><span class="tag">Excel</span><span class="tag">KPIs</span><span class="tag">Insights</span></div>
             <a class="project-link" href="https://github.com/Larakashmeri" target="_blank" rel="noopener">View project on GitHub ↗</a>
           </article>
           <article class="card">
-            <div class="project-art"><div class="placeholder">POWER BI DASHBOARD<br><small>Replace with your screenshot</small></div></div>
-            <div class="project-type">Power BI · Business Intelligence</div><h3>Business Intelligence Dashboard</h3>
+            <div class="project-art">
+              <div class="art-label">Power BI Dashboard</div>
+              <img src="images/powerbi-dashboard.png" alt="Screenshot of the Power BI business intelligence dashboard" loading="lazy" onerror="this.remove()">
+            </div>
+            <div class="project-type">Power BI · Business Intelligence</div>
+            <h3>Business Intelligence Dashboard</h3>
             <p>A visual report that helps users explore performance metrics, identify patterns, and make data-informed decisions.</p>
             <div class="tags"><span class="tag">Power BI</span><span class="tag">Data Modeling</span><span class="tag">Visualization</span></div>
             <a class="project-link" href="https://github.com/Larakashmeri" target="_blank" rel="noopener">View project on GitHub ↗</a>
           </article>
         </div>
       </section>
+
       <section>
-        <div class="eyebrow">How I add value</div><h2>From raw data to clear action.</h2>
+        <div class="eyebrow">How I add value</div>
+        <h2>From raw data to clear action.</h2>
         <div class="insights">
           <div class="insight"><b>01</b><strong>Understand</strong><br><span>Clarify the business question and define meaningful KPIs.</span></div>
           <div class="insight"><b>02</b><strong>Analyze</strong><br><span>Clean, validate, and explore data to identify trends.</span></div>
           <div class="insight"><b>03</b><strong>Communicate</strong><br><span>Present findings through clear dashboards and recommendations.</span></div>
         </div>
       </section>
-<section id="contact">
-  <div class="eyebrow">GET IN TOUCH</div>
-  <h2>Let's Connect.</h2>
 
-  <p class="section-intro">
-    Interested in my work or have an opportunity in
-    Data Analytics or Business Intelligence?
-    I'd love to hear from you.
-  </p>
-
-  <div class="contact">
-    <div>
-      <h3>Let's talk data.</h3>
-      <p style="color:var(--muted)">
-        Open to Data Analyst and BI opportunities.
-      </p>
-
-      <div class="links">
-        <a href="mailto:larakashmeri@gmail.com">
-          ✉ Email Me ↗
-        </a>
-
-        <a href="www.linkedin.com/in/lara-kashmeri-158951244"
-           target="_blank" rel="noopener">
-          LinkedIn ↗
-        </a>
-
-        <a href="https://github.com/Larakashmeri"
-           target="_blank" rel="noopener">
-          GitHub ↗
-        </a>
-      </div>
-
-      <p style="color:var(--muted);margin-top:22px">
-        📍 Saudi Arabia
-      </p>
-    </div>
-
-    <a class="btn primary"
-       href="./Lara_Kashmeri_CV.pdf"
-       target="_blank" rel="noopener">
-      View My CV ↗
-    </a>
-  </div>
-</section>
+      <section id="contact">
+        <div class="eyebrow">Get in touch</div>
+        <h2>Let's connect.</h2>
+        <p class="section-intro">Interested in my work or have an opportunity in Data Analytics or Business Intelligence? I'd love to hear from you.</p>
+        <div class="contact">
+          <div>
+            <h3>Let's talk data.</h3>
+            <p style="color:var(--muted);margin:0">Open to Data Analyst and BI opportunities.</p>
+            <div class="links">
+              <a href="mailto:larakashmeri@gmail.com">✉ Email me ↗</a>
+              <a href="https://www.linkedin.com/in/lara-kashmeri-158951244" target="_blank" rel="noopener">LinkedIn ↗</a>
+              <a href="https://github.com/Larakashmeri" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+            <p style="color:var(--muted);margin:22px 0 0">📍 Saudi Arabia</p>
+          </div>
+          <a class="btn primary" href="Lara_Kashmeri_CV.pdf" target="_blank" rel="noopener">View my CV ↗</a>
+        </div>
+      </section>
     </main>
     <footer>© <span id="year"></span> Lara Kashmeri · Data Analytics &amp; Business Intelligence</footer>
   </div>
