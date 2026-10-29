@@ -36,15 +36,20 @@
     .links{display:flex;gap:24px;flex-wrap:wrap;margin-top:28px;color:var(--muted)}
     .preview{border:1px solid rgba(105,180,255,.25);background:linear-gradient(145deg,#10243c,#0a1525);border-radius:25px;padding:22px;box-shadow:0 25px 80px #0005;position:relative;overflow:hidden}
     .preview:before{content:"";position:absolute;width:220px;height:220px;right:-100px;top:-120px;background:#268bff33;filter:blur(20px);border-radius:50%;pointer-events:none}
-    .preview-top{display:flex;justify-content:space-between;align-items:center;color:#dbeaff;font-weight:700;margin-bottom:20px}
+    .preview-top{display:flex;justify-content:space-between;align-items:center;color:#dbeaff;font-weight:700;margin-bottom:20px;position:relative}
     .pills{display:flex;gap:6px}.pills i{width:8px;height:8px;border-radius:50%;background:#31516f}
+    .tabs{display:flex;gap:6px}
+    .tab{font:inherit;font-size:.82rem;font-weight:700;color:var(--muted);background:#0a1728;border:1px solid var(--line);border-radius:99px;padding:5px 14px;cursor:pointer}
+    .tab.active{color:var(--text);background:linear-gradient(135deg,#2587ee,#405ce8);border-color:transparent}
+    .tab:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+    .panel[hidden]{display:none}
     .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
     .metric{background:#0a1728;border:1px solid rgba(115,170,230,.13);border-radius:15px;padding:15px 12px}
     .metric small{color:var(--muted);display:block}.metric strong{font-size:1.5rem;display:block;margin:4px 0}.metric em{font-style:normal;color:var(--green);font-size:.82rem}
     .bars{height:130px;display:flex;align-items:end;gap:10px;padding:18px 10px 0;border-bottom:1px solid var(--line);margin-top:18px}
     .bar{flex:1;border-radius:7px 7px 0 0;background:linear-gradient(180deg,#68d7ff,#2877ed);opacity:.9}
-    .bar-labels{display:flex;gap:10px;padding:8px 10px 0;color:var(--muted);font-size:.72rem}
-    .bar-labels span{flex:1;text-align:center}
+    .bar-labels{display:flex;gap:10px;padding:8px 10px 0;color:var(--muted);font-size:.7rem}
+    .bar-labels span{flex:1;text-align:center;overflow:hidden;text-overflow:clip;white-space:nowrap}
     .caption{color:var(--muted);font-size:.8rem;margin:13px 0 0}
     section{padding:54px 0}
     .eyebrow{color:var(--cyan);font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
@@ -71,7 +76,7 @@
     .contact h3{margin:0 0 6px;font-size:1.5rem}
     footer{padding:28px 0 40px;color:#8295ad;font-size:.85rem;border-top:1px solid rgba(105,180,255,.12);margin-top:40px}
     @media(max-width:780px){header{align-items:flex-start}nav{gap:12px;flex-wrap:wrap;justify-content:flex-end;font-size:.82rem}.hero{grid-template-columns:1fr;padding-top:45px;gap:30px}.projects{grid-template-columns:1fr}.insights{grid-template-columns:1fr}.contact{align-items:flex-start;flex-direction:column}.preview{max-width:600px;width:100%}}
-    @media(max-width:440px){.brand{font-size:.75rem}.mark{width:36px;height:36px}nav{max-width:170px}.metrics{gap:6px}.metric{padding:11px 8px}.metric strong{font-size:1.15rem}.metric small{font-size:.78rem}.lead{font-size:1.03rem}}
+    @media(max-width:440px){.brand{font-size:.75rem}.mark{width:36px;height:36px}nav{max-width:170px}.metrics{gap:6px}.metric{padding:11px 8px}.metric strong{font-size:1.15rem}.metric small{font-size:.78rem}.metric em{font-size:.74rem}.bar-labels{font-size:.62rem;gap:6px}.lead{font-size:1.03rem}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.btn:hover{transform:none}}
   </style>
 </head>
@@ -99,22 +104,50 @@
             <span>Saudi Arabia</span>
           </div>
         </div>
+
         <div class="preview">
-          <div class="preview-top"><span>Procurement Performance</span><span class="pills"><i></i><i></i><i></i></span></div>
-          <div class="metrics">
-            <div class="metric"><small>Cost savings</small><strong>8.0%</strong><em>3.9M saved</em></div>
-            <div class="metric"><small>Compliance</small><strong>82%</strong><em>640 of 777 POs</em></div>
-            <div class="metric"><small>Avg. lead time</small><strong>10.8</strong><em>days</em></div>
+          <div class="preview-top">
+            <span class="tabs" role="tablist" aria-label="Project highlights">
+              <button class="tab active" type="button" role="tab" aria-selected="true" data-target="panel-bi">Power BI</button>
+              <button class="tab" type="button" role="tab" aria-selected="false" data-target="panel-excel">Excel</button>
+            </span>
+            <span class="pills"><i></i><i></i><i></i></span>
           </div>
-          <div class="bars">
-            <div class="bar" style="height:77%" title="Alpha Inc: 689K saved"></div>
-            <div class="bar" style="height:100%" title="Beta Supplies: 890K saved"></div>
-            <div class="bar" style="height:88%" title="Delta Logistics: 782K saved"></div>
-            <div class="bar" style="height:95%" title="Epsilon Group: 845K saved"></div>
-            <div class="bar" style="height:81%" title="Gamma Co: 725K saved"></div>
+
+          <div class="panel" id="panel-bi">
+            <div class="metrics">
+              <div class="metric"><small>Total sales</small><strong>118.73M</strong><em>1.13M units</em></div>
+              <div class="metric"><small>Total profit</small><strong>16.89M</strong><em>14.2% margin</em></div>
+              <div class="metric"><small>Top product</small><strong>Paseo</strong><em>4.8M profit</em></div>
+            </div>
+            <div class="bars">
+              <div class="bar" style="height:100%" title="Paseo: 4.8M profit"></div>
+              <div class="bar" style="height:63%" title="VTT: 3.0M profit"></div>
+              <div class="bar" style="height:58%" title="Amarilla: 2.8M profit"></div>
+              <div class="bar" style="height:48%" title="Velo: 2.3M profit"></div>
+              <div class="bar" style="height:44%" title="Montana: 2.1M profit"></div>
+              <div class="bar" style="height:38%" title="Carretera: 1.8M profit"></div>
+            </div>
+            <div class="bar-labels"><span>Paseo</span><span>VTT</span><span>Amarilla</span><span>Velo</span><span>Montana</span><span>Carretera</span></div>
+            <p class="caption">Profit by product · Sales Performance Dashboard</p>
           </div>
-          <div class="bar-labels"><span>Alpha</span><span>Beta</span><span>Delta</span><span>Epsilon</span><span>Gamma</span></div>
-          <p class="caption">Cost savings by supplier · Excel project</p>
+
+          <div class="panel" id="panel-excel" hidden>
+            <div class="metrics">
+              <div class="metric"><small>Cost savings</small><strong>8.0%</strong><em>3.9M saved</em></div>
+              <div class="metric"><small>Compliance</small><strong>82%</strong><em>640 of 777 POs</em></div>
+              <div class="metric"><small>Avg. lead time</small><strong>10.8</strong><em>days</em></div>
+            </div>
+            <div class="bars">
+              <div class="bar" style="height:77%" title="Alpha Inc: 689K saved"></div>
+              <div class="bar" style="height:100%" title="Beta Supplies: 890K saved"></div>
+              <div class="bar" style="height:88%" title="Delta Logistics: 782K saved"></div>
+              <div class="bar" style="height:95%" title="Epsilon Group: 845K saved"></div>
+              <div class="bar" style="height:81%" title="Gamma Co: 725K saved"></div>
+            </div>
+            <div class="bar-labels"><span>Alpha</span><span>Beta</span><span>Delta</span><span>Epsilon</span><span>Gamma</span></div>
+            <p class="caption">Cost savings by supplier · Procurement Performance Dashboard</p>
+          </div>
         </div>
       </section>
 
@@ -155,7 +188,7 @@
             </div>
             <div class="project-type">Power BI · Sales Analytics</div>
             <h3>Sales Performance Dashboard</h3>
-            <p>A Power BI report that tracks sales, profit, and units sold by country, product, segment, and discount band, with filters for date and category.</p>
+            <p>A Power BI report covering 118.73M in sales and 16.89M in profit across 6 products and 5 countries, with filters for product, country, segment, and date.</p>
             <div class="tags"><span class="tag">Power BI</span><span class="tag">Data Visualization</span><span class="tag">Interactive Filters</span></div>
             <a class="project-link" href="https://github.com/Larakashmeri" target="_blank" rel="noopener">View project on GitHub ↗</a>
           </article>
@@ -193,6 +226,24 @@
     </main>
     <footer>© <span id="year"></span> Lara Kashmeri · Data Analytics &amp; Business Intelligence</footer>
   </div>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    var tabs = document.querySelectorAll('.tab');
+    var panels = document.querySelectorAll('.panel');
+    tabs.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        tabs.forEach(function (t) {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        panels.forEach(function (p) { p.hidden = true; });
+        document.getElementById(btn.dataset.target).hidden = false;
+      });
+    });
+  </script>
 </body>
 </html>
