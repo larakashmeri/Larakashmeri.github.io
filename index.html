@@ -44,6 +44,7 @@
     .bars{height:130px;display:flex;align-items:end;gap:10px;padding:18px 10px 0;border-bottom:1px solid var(--line);margin-top:18px}
     .bar{flex:1;border-radius:7px 7px 0 0;background:linear-gradient(180deg,#68d7ff,#2877ed);opacity:.9}
     .caption{color:var(--muted);font-size:.8rem;margin:13px 0 0}
+    .preview-img{display:block;width:100%;border-radius:14px;border:1px solid rgba(115,170,230,.13)}
     section{padding:54px 0}
     .eyebrow{color:var(--cyan);font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
     h2{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15;margin:10px 0 12px;letter-spacing:-.03em}
@@ -97,18 +98,11 @@
             <span>Saudi Arabia</span>
           </div>
         </div>
-        <div class="preview" role="img" aria-label="Illustration of an analytics dashboard with revenue, margin, and customer metrics">
-          <div class="preview-top"><span>Analytics Snapshot</span><span class="pills"><i></i><i></i><i></i></span></div>
-          <div class="metrics">
-            <div class="metric"><small>Revenue</small><strong>2.3M</strong><em>+12.4%</em></div>
-            <div class="metric"><small>Margin</small><strong>18.6%</strong><em>+2.1 pt</em></div>
-            <div class="metric"><small>Customers</small><strong>793</strong><em>+5.0%</em></div>
-          </div>
-          <div class="bars">
-            <div class="bar" style="height:35%"></div><div class="bar" style="height:52%"></div><div class="bar" style="height:42%"></div><div class="bar" style="height:72%"></div><div class="bar" style="height:61%"></div><div class="bar" style="height:86%"></div><div class="bar" style="height:96%"></div><div class="bar" style="height:76%"></div>
-          </div>
-          <p class="caption">Illustrative sample data</p>
-        </div>
+        <a class="preview" href="#projects" aria-label="View my projects">
+          <div class="preview-top"><span>Sales Performance Dashboard</span><span class="pills"><i></i><i></i><i></i></span></div>
+          <img class="preview-img" src="Sales-Performance-Dashboard.png" alt="Screenshot of my Power BI sales performance dashboard">
+          <p class="caption">Power BI · Featured project</p>
+        </a>
       </section>
 
       <section id="about">
