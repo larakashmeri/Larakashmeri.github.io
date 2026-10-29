@@ -57,6 +57,12 @@
     .section-intro{color:var(--muted);max-width:650px;margin:0 0 28px}
     .skills{display:flex;flex-wrap:wrap;gap:11px}
     .skill{border:1px solid var(--line);background:#0d1d30;border-radius:12px;padding:10px 15px;color:#d7e7fa}
+    .marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+    .marquee-track{display:flex;width:max-content;animation:skills-scroll 35s linear infinite}
+    .marquee:hover .marquee-track{animation-play-state:paused}
+    .marquee-set{display:flex;flex:none}
+    .marquee-set .skill{margin-right:11px;white-space:nowrap}
+    @keyframes skills-scroll{to{transform:translateX(-50%)}}
     .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
     .card{border:1px solid var(--line);background:linear-gradient(145deg,#102139,#0a1626);border-radius:20px;padding:22px;overflow:hidden}
     .project-art{height:190px;border-radius:14px;margin-bottom:20px;background:linear-gradient(135deg,#102e50,#173f70);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
@@ -77,7 +83,7 @@
     footer{padding:28px 0 40px;color:#8295ad;font-size:.85rem;border-top:1px solid rgba(105,180,255,.12);margin-top:40px}
     @media(max-width:780px){header{align-items:flex-start}nav{gap:12px;flex-wrap:wrap;justify-content:flex-end;font-size:.82rem}.hero{grid-template-columns:1fr;padding-top:45px;gap:30px}.projects{grid-template-columns:1fr}.insights{grid-template-columns:1fr}.contact{align-items:flex-start;flex-direction:column}.preview{max-width:600px;width:100%}}
     @media(max-width:440px){.brand{font-size:.75rem}.mark{width:36px;height:36px}nav{max-width:170px}.metrics{gap:6px}.metric{padding:11px 8px}.metric strong{font-size:1.15rem}.metric small{font-size:.78rem}.metric em{font-size:.74rem}.bar-labels{font-size:.62rem;gap:6px}.lead{font-size:1.03rem}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.btn:hover{transform:none}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}.btn:hover{transform:none}.marquee-track{animation:none;width:auto}.marquee-set{flex-wrap:wrap;gap:11px}.marquee-set .skill{margin-right:0}.marquee-set[aria-hidden="true"]{display:none}.marquee{-webkit-mask-image:none;mask-image:none}}
   </style>
 </head>
 <body>
@@ -134,16 +140,16 @@
 
           <div class="panel" id="panel-excel" hidden>
             <div class="metrics">
-              <div class="metric"><small>Cost savings</small><strong>8.0%</strong><em>3.9M saved</em></div>
+              <div class="metric"><small>Cost savings</small><strong>8.0%</strong><em>3.6M saved</em></div>
               <div class="metric"><small>Compliance</small><strong>82%</strong><em>640 of 777 POs</em></div>
               <div class="metric"><small>Avg. lead time</small><strong>10.8</strong><em>days</em></div>
             </div>
             <div class="bars">
-              <div class="bar" style="height:77%" title="Alpha Inc: 689K saved"></div>
-              <div class="bar" style="height:100%" title="Beta Supplies: 890K saved"></div>
-              <div class="bar" style="height:88%" title="Delta Logistics: 782K saved"></div>
-              <div class="bar" style="height:95%" title="Epsilon Group: 845K saved"></div>
-              <div class="bar" style="height:81%" title="Gamma Co: 725K saved"></div>
+              <div class="bar" style="height:75%" title="Alpha Inc: 622K saved"></div>
+              <div class="bar" style="height:100%" title="Beta Supplies: 831K saved"></div>
+              <div class="bar" style="height:84%" title="Delta Logistics: 699K saved"></div>
+              <div class="bar" style="height:95%" title="Epsilon Group: 788K saved"></div>
+              <div class="bar" style="height:84%" title="Gamma Co: 699K saved"></div>
             </div>
             <div class="bar-labels"><span>Alpha</span><span>Beta</span><span>Delta</span><span>Epsilon</span><span>Gamma</span></div>
             <p class="caption">Cost savings by supplier · Procurement Performance Dashboard</p>
@@ -160,8 +166,15 @@
       <section id="skills">
         <div class="eyebrow">Toolkit</div>
         <h2>Skills &amp; Tools</h2>
-        <div class="skills">
-          <span class="skill">Microsoft Excel</span><span class="skill">Power BI</span><span class="skill">Data Analysis</span><span class="skill">Dashboarding</span><span class="skill">KPI Reporting</span><span class="skill">Data Cleaning &amp; Validation</span><span class="skill">Business Intelligence</span><span class="skill">Power Query</span>
+        <div class="marquee">
+          <div class="marquee-track">
+            <div class="marquee-set">
+              <span class="skill">Microsoft Excel</span><span class="skill">Power BI</span><span class="skill">Data Analysis</span><span class="skill">Dashboarding</span><span class="skill">KPI Reporting</span><span class="skill">Data Cleaning &amp; Validation</span><span class="skill">Business Intelligence</span><span class="skill">Power Query</span><span class="skill">PivotTables</span><span class="skill">Conditional Formatting</span>
+            </div>
+            <div class="marquee-set" aria-hidden="true">
+              <span class="skill">Microsoft Excel</span><span class="skill">Power BI</span><span class="skill">Data Analysis</span><span class="skill">Dashboarding</span><span class="skill">KPI Reporting</span><span class="skill">Data Cleaning &amp; Validation</span><span class="skill">Business Intelligence</span><span class="skill">Power Query</span><span class="skill">PivotTables</span><span class="skill">Conditional Formatting</span>
+            </div>
+          </div>
         </div>
       </section>
 
